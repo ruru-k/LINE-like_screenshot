@@ -1,0 +1,56 @@
+<html lang="ja" id="HTML">
+<head>
+  <meta charset="UTF-8"/>
+  <title>LINE風チャット画面</title>
+  <link rel='stylesheet' href='style.css' type='text/css' media='all' />
+  <script src="chat.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="jquery.colorbox-min.js"></script>
+  <link rel="stylesheet" href="colorbox.css" />
+
+  <script type="text/javascript">
+    const Chara ="名前";
+    const room_name ="ルーム名";
+    const img_path = "../";
+  </script>
+</head>
+<body>
+  <div class="counter" id="talk_count">0</div>
+
+  <!-- ▼LINE風ここから -->
+  <div class="line__container">
+    <!-- ヘッダー部 -->
+    <div class="line__title"><b id="room_name" ></b>
+		<div onclick="all_read_talk()" class="line_title_left">＜</div>
+		<div class="line_title_right"><img onclick="download()" src="images/download.png" /><img onclick="time_setup()" id="icon_time" src="images/menu.png" /></div>
+    </div>
+
+    <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
+    <div id="talk_area" class="line__contents">
+		<div class="line__today"><span>今日</span></div>
+	<!--　ここに入力された会話が挿入 -->
+    </div>
+    <!--　▲会話エリア ここまで -->
+	
+    <!-- 送信 -->
+    <div class="line__send">
+		<div class="line_send_left">
+			<span id="plus" onclick="Change_talk(this.id)">+</span>
+			<label><input type="file" onchange="Add_img()" id="file_img"><img src="./images/camera.png" /></label>
+			<img onclick="Trash_talk()" src="./images/trash.png" />
+		</div>
+		<input type="text" id="input_text">
+		<span class="line_send_right" onclick="Add_talk()">➤</span>
+    </div>
+	
+  </div>
+  <!--　▲LINE風ここまで -->
+  <input type="number" class="time_changer" id="time_changer" value="0">
+  <!--　ルーム名前設定
+	  <input type="text" class="room_changer" id="room_changer" value="0">
+	  <input type="text" class="name_changer" id="name_changer" value="0">
+  -->
+
+</body>
+
+</html>
